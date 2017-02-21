@@ -18,7 +18,7 @@ vdevs.
 
 ## Contributing
 
-That this time ideas for additional checks/metrics would be very much appreciated.
+At this time ideas for additional checks/metrics would be very much appreciated.
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/blacksails/sensu-plugins-zfs.
 
