@@ -1,8 +1,6 @@
 # SensuPluginsZFS
 
-Sensu plugin for zfs checks.
-
-So far we just got a simple plugin that checks if the zpool is online.
+Sensu plugin for zfs health checks.
 
 ## Checks
 
@@ -23,7 +21,7 @@ At this time ideas for additional checks/metrics would be very much appreciated.
 I have a few ideas that would be nice:
 
 - [ ] Check that disks have been scrubbed recently
-- [ ] Check pool capacity
+- [ ] Check/metric for pool capacity
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/blacksails/sensu-plugins-zfs.
 
