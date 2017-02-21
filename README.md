@@ -11,7 +11,7 @@ vdevs.
 
 - `-z, --zpool` What zpool to check. If omitted, we check all zpools.
 - `-c, --capacity-warn` Capacity threshold for when to warn. (default 80)
-- `-C, --capacity-crit' Capacity threshold for when to crit. (default 90)
+- `-C, --capacity-crit` Capacity threshold for when to crit. (default 90)
 
 ## Installation
 [Installation and setup](http://sensu-plugins.io/docs/installation_instructions.html)
