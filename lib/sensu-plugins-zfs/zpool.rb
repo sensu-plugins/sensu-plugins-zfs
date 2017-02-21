@@ -8,11 +8,12 @@ module SensuPluginsZFS
   end
 
   class ZPool
-    attr_reader :state, :name, :vdevs
+    attr_reader :name, :state, :capacity, :vdevs
 
     def initialize(name)
       @name = name
       @state = %x[sudo zpool status #{name} | grep '^ state: ' | cut -d ' ' -f 3].strip
+      @capacity = %x[zpool get -H capacity #{@name} | awk '{print $3}' | cut -d '%' -f1].strip.to_i
       @vdevs = create_vdevs name
     end
 
