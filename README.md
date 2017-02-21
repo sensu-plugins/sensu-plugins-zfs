@@ -20,6 +20,11 @@ vdevs.
 
 At this time ideas for additional checks/metrics would be very much appreciated.
 
+I have a few ideas that would be nice:
+
+- [ ] Check that disks have been scrubbed recently
+- [ ] Check pool capacity
+
 Bug reports and pull requests are welcome on GitHub at https://github.com/blacksails/sensu-plugins-zfs.
 
 
