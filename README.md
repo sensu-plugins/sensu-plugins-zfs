@@ -6,8 +6,14 @@ Sensu plugin for zfs health checks.
 
 ### check-zpool.rb
 
-Checks if the zpool state is ONLINE and wether there has been any errors on
-vdevs.
+This checks does the following checks against one or more zpools.
+
+- Check state
+- Check vdev errors
+- Check capacity
+- Check that a scrub has been run recently
+
+The following flags can be used to configure the checks.
 
 - `-z, --zpool` What zpool to check. If omitted, we check all zpools.
 - `-c, --capacity-warn` Capacity threshold for when to warn. (default 80)
