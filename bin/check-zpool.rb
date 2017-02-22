@@ -12,13 +12,13 @@ class CheckZPool < Sensu::Plugin::Check::CLI
   option :cap_warn,
          short: "-c PERCENTAGE",
          long: "--capacity-warn PERCENTAGE",
-         description: "Warn if capacity is above this threshold",
+         description: "Warn if capacity in percent is above this threshold",
          default: 80
 
   option :cap_crit,
          short: "-C PERCENTAGE",
          long: "--capacity-crit PERCENTAGE",
-         description: "Crit if capacity is above this threshold",
+         description: "Crit if capacity in percent is above this threshold",
          default: 90
 
   def run
