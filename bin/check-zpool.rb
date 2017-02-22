@@ -21,6 +21,12 @@ class CheckZPool < Sensu::Plugin::Check::CLI
          description: "Crit if capacity in percent is above this threshold",
          default: 90
 
+  option :scrubbing_interval,
+         short: "-s DAYS",
+         long: "--scrubbing-interval DAYS",
+         description: "Warn it is more than this number of days since last scrub",
+         default: 7
+
   def run
     zpools = []
     if config[:zpool]
@@ -32,6 +38,7 @@ class CheckZPool < Sensu::Plugin::Check::CLI
       check_state zp
       check_vdevs zp
       check_capacity zp
+      check_recently_scrubbed zp
     end
     if config[:zpool]
       ok "zpool #{config[:zpool]} is ok"
@@ -60,6 +67,13 @@ class CheckZPool < Sensu::Plugin::Check::CLI
       critical "capacity for zpool #{zp.name} is above #{config[:cap_crit]}% (currently #{zp.capacity}%)"
     elsif zp.capacity > config[:cap_warn].to_i
       warning "capacity for zpool #{zp.name} is above #{config[:cap_warn]}% (currently #{zp.capacity}%)"
+    end
+  end
+
+  def check_recently_scrubbed(zp)
+    last_scrub = zp.scrubbed_at
+    if last_scrub > Time.now - 60 * 60 * 24 * config[:scrubbing_interval].to_i
+      warning "It is more than #{config[:scrubbing_interval]} days since zpool #{zp.name} was scrubbed. Last scrubbed #{last_scrub.to_s}"
     end
   end
 end

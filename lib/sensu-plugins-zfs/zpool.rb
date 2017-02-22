@@ -1,3 +1,5 @@
+require "time"
+
 module SensuPluginsZFS
   class ZFS
     def self.zpools
@@ -13,12 +15,21 @@ module SensuPluginsZFS
     def initialize(name)
       @name = name
       @state = %x[sudo zpool status #{name} | grep '^ state: ' | cut -d ' ' -f 3].strip
-      @capacity = %x[zpool get -H capacity #{@name} | awk '{print $3}' | cut -d '%' -f1].strip.to_i
+      @capacity = %x[sudo zpool get -H capacity #{@name} | awk '{print $3}' | cut -d '%' -f1].strip.to_i
       @vdevs = create_vdevs name
     end
 
     def ok?
-      return @state == "ONLINE"
+      @state == "ONLINE"
+    end
+
+    def scrubbed_at
+      if never_scrubbed?
+        return Time.at(0)
+      elsif scrub_in_progress?
+        return Time.now
+      end
+      Time.parse %[zpool status tank | grep '^  scan: scrub' | awk '{print $11" "$12" "$13" "$14" "$15}'].strip
     end
 
     private
@@ -29,6 +40,14 @@ module SensuPluginsZFS
         arr = l.strip.split(' ')
         VDev.new(self, arr[0], arr[1], arr[2].to_i, arr[3].to_i, arr[4].to_i)
       end
+    end
+    
+    def never_scrubbed?
+      %x[sudo zpool status #{@name} | egrep -c "none requested"].strip.to_i == 1
+    end
+
+    def scrub_in_progress?
+      %x[sudo zpool status #{@name} | egrep -c "scrub in progress|resilver"].strip.to_i == 1
     end
   end
 
