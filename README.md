@@ -25,7 +25,7 @@ I have a few ideas that would be nice:
 - [x] Check for zpool state
 - [x] Check for vdev errors
 - [x] Check for pool capacity
-- [ ] Check that disks have been scrubbed recently
+- [x] Check that disks have been scrubbed recently
 - [ ] Metric for disk utilization
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/blacksails/sensu-plugins-zfs.
