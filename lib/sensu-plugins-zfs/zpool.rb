@@ -29,7 +29,7 @@ module SensuPluginsZFS
       elsif scrub_in_progress?
         return Time.now
       end
-      Time.parse %[zpool status tank | grep '^  scan: scrub' | awk '{print $11" "$12" "$13" "$14" "$15}'].strip
+      Time.parse %x[sudo zpool status tank | grep '^  scan: scrub' | awk '{print $11" "$12" "$13" "$14" "$15}'].strip
     end
 
     private
