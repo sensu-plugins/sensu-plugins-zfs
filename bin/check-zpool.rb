@@ -72,7 +72,7 @@ class CheckZPool < Sensu::Plugin::Check::CLI
 
   def check_recently_scrubbed(zp)
     last_scrub = zp.scrubbed_at
-    if last_scrub > Time.now - 60 * 60 * 24 * config[:scrubbing_interval].to_i
+    if last_scrub < Time.now - 60 * 60 * 24 * config[:scrubbing_interval].to_i
       warning "It is more than #{config[:scrubbing_interval]} days since zpool #{zp.name} was scrubbed. Last scrubbed #{last_scrub.to_s}"
     end
   end
