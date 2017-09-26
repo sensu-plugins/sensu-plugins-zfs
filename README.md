@@ -35,7 +35,7 @@ I have a few ideas that would be nice:
 - [x] Check that disks have been scrubbed recently
 - [ ] Metric for disk utilization
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/blacksails/sensu-plugins-zfs.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sensu-plugins/sensu-plugins-zfs.
 
 
 ## License
