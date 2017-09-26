@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Sensu plugin for zfs}
   spec.description   = %q{Sensu plugin for zfs}
-  spec.homepage      = "https://github.com/blacksails/sensu-plugins-zfs"
+  spec.homepage      = "https://github.com/sensu-plugins/sensu-plugins-zfs"
   spec.license       = "MIT"
 
   spec.files         = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md)
