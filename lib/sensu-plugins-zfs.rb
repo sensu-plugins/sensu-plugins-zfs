@@ -1,1 +1,1 @@
-require "sensu-plugins-zfs/zpool"
+require 'sensu-plugins-zfs/zpool'
