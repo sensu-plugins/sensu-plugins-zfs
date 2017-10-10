@@ -7,7 +7,12 @@
 /pkg/
 /spec/reports/
 /tmp/
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log
+.vagrant/*
+.DS_Store
+.idea/*
 *.gem
-
-# rspec failure tracking
-.rspec_status

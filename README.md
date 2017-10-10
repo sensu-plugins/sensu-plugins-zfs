@@ -2,6 +2,11 @@
 
 Sensu plugin for zfs health checks.
 
+[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-zfs.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-zfs)
+[![Gem Version](https://badge.fury.io/rb/sensu-plugins-zfs.svg)](http://badge.fury.io/rb/sensu-plugins-zfs)
+[![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-zfs.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-zfs)
+[![Community Slack](https://slack.sensu.io/badge.svg)](https://slack.sensu.io/badge)
+
 ## Checks
 
 ### check-zpool.rb
@@ -41,4 +46,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/sensu-
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
