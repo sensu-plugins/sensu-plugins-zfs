@@ -3,7 +3,7 @@ require 'time'
 module SensuPluginsZFS
   class ZFS
     def self.zpools
-      `sudo zpool list -H -o name`.lines('').map do |l|
+      `sudo zpool list -H -o name`.lines.map do |l|
         ZPool.new(l.strip)
       end
     end

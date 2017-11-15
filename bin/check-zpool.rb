@@ -34,10 +34,15 @@ class CheckZPool < Sensu::Plugin::Check::CLI
     else
       zpools = SensuPluginsZFS::ZFS.zpools
     end
+    # Looks odd, but we want to check things that can go critical first
     zpools.each do |zp|
       check_state zp
-      check_vdevs zp
+    end
+    zpools.each do |zp|
       check_capacity zp
+    end
+    zpools.each do |zp|
+      check_vdevs zp
       check_recently_scrubbed zp
     end
     if config[:zpool]
