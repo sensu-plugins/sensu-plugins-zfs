@@ -42,8 +42,10 @@ class CheckZPool < Sensu::Plugin::Check::CLI
       check_vdevs zp
       check_recently_scrubbed zp
     end
-    critical @criticals.first unless @criticals.empty?
-    warning @warnings.first unless @warnings.empty?
+    puts @criticals
+    puts @warnings
+    critical @criticals.join(', ') unless @criticals.empty?
+    warning @warnings.join(', ') unless @warnings.empty?
     if config[:zpool]
       ok "zpool #{config[:zpool]} is ok"
     end
