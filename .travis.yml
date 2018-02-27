@@ -5,7 +5,6 @@ before_install: gem install bundler -v 1.15
 install:
 - bundle install
 rvm:
-- 2.0
 - 2.1
 - 2.2
 - 2.3.0
@@ -28,5 +27,9 @@ deploy:
   on:
     tags: true
     all_branches: true
-    rvm: 2.4.1
+    rvm:
+      - 2.1
+      - 2.2
+      - 2.3.0
+      - 2.4.1
     repo: sensu-plugins/sensu-plugins-zfs

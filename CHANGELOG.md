@@ -4,6 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format located [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+### Security
+- updated rubocop dependency to `~> 0.51.0` per: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8418 (@majormoses)
+
+### Breaking Changes
+- in order to bring in the newer rubocop we had to drop ruby `< 2.1` support (@majormoses)
+
 ### Changed
 - accepted into community, a bunch of initial house keeping (@majormoses)
 
