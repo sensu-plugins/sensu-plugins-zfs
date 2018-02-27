@@ -1,5 +1,3 @@
-# coding: utf-8
-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
@@ -34,7 +32,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.platform               = Gem::Platform::RUBY
   spec.post_install_message   = 'You can use the embedded Ruby by setting EMBEDDED_RUBY=true in /etc/default/sensu'
   spec.require_paths          = ['lib']
-  spec.required_ruby_version  = '>= 2.0.0'
+  spec.required_ruby_version  = '>= 2.1.0'
   spec.summary                = 'Sensu plugin for zfs'
   spec.test_files             = spec.files.grep(%r{^(test|spec|features)/})
   spec.version                = SensuPluginsZFS::Version::VER_STRING
@@ -46,7 +44,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_development_dependency 'pry',                       '~> 0.10'
   spec.add_development_dependency 'rake',                      '~> 10.0'
   spec.add_development_dependency 'redcarpet',                 '~> 3.2'
-  spec.add_development_dependency 'rubocop',                   '~> 0.49.0'
   spec.add_development_dependency 'rspec',                     '~> 3.1'
+  spec.add_development_dependency 'rubocop',                   '~> 0.51.0'
   spec.add_development_dependency 'yard',                      '~> 0.8'
 end
