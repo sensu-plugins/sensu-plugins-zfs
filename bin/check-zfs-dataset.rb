@@ -47,9 +47,9 @@ class CheckZFS < Sensu::Plugin::Check::CLI
 
   def check_percentage(ds)
     if ds.calc_percentage_quota > config[:cap_crit].to_i
-      @criticals << "dataset #{ds.name} is above #{config[:cap_crit]}% (currently #{ds.available} left, quota: #{ds.quota})"
+      @criticals << "dataset #{ds.name} is above #{config[:cap_crit]}% (currently #{ds.calc_percentage_quota}%)"
     elsif ds.calc_percentage_quota > config[:cap_warn].to_i
-      @warnings << "dataset #{ds.name} is above #{config[:cap_warn]}% (currently #{ds.available} left, quota: #{ds.quota})"
+      @warnings << "dataset #{ds.name} is above #{config[:cap_warn]}% (currently #{ds.calc_percentage_quota}%)"
     end
   end
 
