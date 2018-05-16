@@ -9,7 +9,7 @@ module SensuPluginsZFS
     end
     
     def self.zfslist
-      `zfs list -H -o name`.lines.map do |l|
+      `sudo zfs list -H -o name`.lines.map do |l|
         ZFSList.new(l.strip)
       end
     end
@@ -20,9 +20,9 @@ module SensuPluginsZFS
     
     def initialize(name)
       @name = name
-      @used = `zfs get -Hp used "#{name}" | awk '{print $3}'`.strip.to_i
-      @available = `zfs get -Hp available "#{name}" | awk '{print $3}'`.strip.to_i
-      @quota = `zfs get -Hp quota "#{name}" | awk '{print $3}'`.strip.to_i
+      @used = `sudo zfs get -Hp used "#{name}" | awk '{print $3}'`.strip.to_i
+      @available = `sudo zfs get -Hp available "#{name}" | awk '{print $3}'`.strip.to_i
+      @quota = `sudo zfs get -Hp quota "#{name}" | awk '{print $3}'`.strip.to_i
     end
       
     def calc_percentage_quota
