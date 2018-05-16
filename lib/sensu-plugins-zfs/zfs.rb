@@ -32,6 +32,7 @@ module SensuPluginsZFS
     def has_quota?
       @quota > 0
     end
+  end
     
   class ZPool
     attr_reader :name, :state, :capacity, :vdevs
