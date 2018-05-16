@@ -26,7 +26,7 @@ class CheckZFS < Sensu::Plugin::Check::CLI
     @criticals = []
     zfslist = []
     if config[:dataset]
-      zfslist << SensuPluginsZFS::ZfsList.new(config[:dataset])
+      zfslist << SensuPluginsZFS::ZFSList.new(config[:dataset])
     else
       zfslist = SensuPluginsZFS::ZFS.zfslist
     end
