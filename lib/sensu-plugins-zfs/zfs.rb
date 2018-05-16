@@ -23,6 +23,7 @@ module SensuPluginsZFS
       @used = `zfs get -Hp used "#{name}" | awk '{print $3}'`.strip.to_i
       @available = `zfs get -Hp available "#{name}" | awk '{print $3}'`.strip.to_i
       @quota = `zfs get -Hp quota "#{name}" | awk '{print $3}'`.strip.to_i
+    end
       
     def calc_percentage_quota
       return ((@used * 100) / @quota) if has_quota?
