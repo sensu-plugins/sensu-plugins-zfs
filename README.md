@@ -9,7 +9,7 @@ Sensu plugin for zfs health checks.
 
 ## Checks
 
-### check-zpool.rb
+### check-zfs-zpool.rb
 
 This checks does the following checks against one or more zpools.
 
@@ -24,6 +24,18 @@ The following flags can be used to configure the checks.
 - `-c, --capacity-warn` Capacity threshold for when to warn. (default 80)
 - `-C, --capacity-crit` Capacity threshold for when to crit. (default 90)
 - `-s, --scrubbing-interval` Warn when it is more than this number of days since last scrub. (default 7)
+
+### check-zfs-dataset.rb
+
+This checks looks for used space quota capacity
+
+- Check quota used percentage
+
+The following flags can be used to configure the checks.
+
+- `-d, --dataset` What dataset to check. If omitted, we check all datasets.
+- `-c, --capacity-warn` Capacity threshold for when to warn. (default 80)
+- `-C, --capacity-crit` Capacity threshold for when to crit. (default 90)
 
 ## Installation
 [Installation and setup](http://sensu-plugins.io/docs/installation_instructions.html)
