@@ -7,6 +7,7 @@ module SensuPluginsZFS
         ZPool.new(l.strip)
       end
     end
+    
     def self.zfslist
       `sudo zfs list -H -o name`.lines.map do |l|
         ZFSList.new(l.strip)
@@ -25,8 +26,7 @@ module SensuPluginsZFS
     end
     
     def calc_percentage_quota
-      return ((@used * 100) / @quota) if quota?
-      return 0 if !quota?
+      return ((@used * 100) / @quota) unless !quota?
     end
     
     def quota?
