@@ -7,6 +7,32 @@ module SensuPluginsZFS
         ZPool.new(l.strip)
       end
     end
+
+    def self.zfslist
+      `sudo zfs list -H -o name`.lines.map do |l|
+        ZFSList.new(l.strip)
+      end
+    end
+  end
+
+  class ZFSList
+    attr_reader :name, :used, :available, :quota
+
+    def initialize(name)
+      @name = name
+      @used = `sudo zfs get -Hp used "#{name}" | awk '{print $3}'`.strip.to_i
+      @available = `sudo zfs get -Hp available "#{name}" | awk '{print $3}'`.strip.to_i
+      @quota = `sudo zfs get -Hp quota "#{name}" | awk '{print $3}'`.strip.to_i
+    end
+
+    def calc_percentage_quota
+      return ((@used * 100) / @quota) if quota?
+      0
+    end
+
+    def quota?
+      @quota > 0
+    end
   end
 
   class ZPool
