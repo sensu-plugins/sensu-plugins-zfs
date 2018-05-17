@@ -9,7 +9,7 @@ Sensu plugin for zfs health checks.
 
 ## Checks
 
-### check-zfs-zpool.rb
+### check-zpool.rb
 
 This checks does the following checks against one or more zpools.
 
