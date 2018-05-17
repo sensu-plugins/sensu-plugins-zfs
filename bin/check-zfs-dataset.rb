@@ -52,5 +52,4 @@ class CheckZFS < Sensu::Plugin::Check::CLI
       @warnings << "dataset #{ds.name} is above #{config[:cap_warn]}% (currently #{ds.calc_percentage_quota}%)"
     end
   end
-
 end
