@@ -27,6 +27,7 @@ module SensuPluginsZFS
 
     def calc_percentage_quota
       return ((@used * 100) / @quota) if quota?
+      0
     end
 
     def quota?
