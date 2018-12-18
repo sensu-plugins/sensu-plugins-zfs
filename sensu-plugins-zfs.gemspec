@@ -45,6 +45,6 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_development_dependency 'rake',                      '~> 10.0'
   spec.add_development_dependency 'redcarpet',                 '~> 3.2'
   spec.add_development_dependency 'rspec',                     '~> 3.1'
-  spec.add_development_dependency 'rubocop',                   '~> 0.51.0'
+  spec.add_development_dependency 'rubocop',                   '~> 0.57.2'
   spec.add_development_dependency 'yard',                      '~> 0.8'
 end
