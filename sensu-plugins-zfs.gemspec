@@ -39,7 +39,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
 
   spec.add_runtime_dependency 'sensu-plugin', '~> 1.4'
 
-  spec.add_development_dependency 'bundler', '~> 1.14'
+  spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'github-markup',             '~> 3.0'
   spec.add_development_dependency 'pry',                       '~> 0.10'
   spec.add_development_dependency 'rake',                      '~> 10.0'
