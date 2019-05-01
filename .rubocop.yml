@@ -1,3 +1,9 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+# TODO: enable this when Ruby 3.0 is out.
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
 MethodLength:
   Max: 200

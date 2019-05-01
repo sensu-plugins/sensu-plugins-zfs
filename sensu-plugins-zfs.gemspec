@@ -32,7 +32,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.platform               = Gem::Platform::RUBY
   spec.post_install_message   = 'You can use the embedded Ruby by setting EMBEDDED_RUBY=true in /etc/default/sensu'
   spec.require_paths          = ['lib']
-  spec.required_ruby_version  = '>= 2.1.0'
+  spec.required_ruby_version  = '>= 2.4.0'
   spec.summary                = 'Sensu plugin for zfs'
   spec.test_files             = spec.files.grep(%r{^(test|spec|features)/})
   spec.version                = SensuPluginsZFS::Version::VER_STRING

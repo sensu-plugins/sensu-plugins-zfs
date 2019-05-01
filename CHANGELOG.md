@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format located [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+### Breaking Changes
+- Remove support for EOL Rubies (2.1, 2.2, 2.3) (@phumpal)
+- Update bundler to latest non-major release (@phumpal)
 
 ## [2.1.0] - 2019-05-06
 ### Added
