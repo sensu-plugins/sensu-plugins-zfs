@@ -44,12 +44,14 @@ class ZfsArcMetrics < Sensu::Plugin::Metric::CLI::Graphite
       command = 'cat /proc/spl/kstat/zfs/arcstats'
 
       `#{command}`.split("\n").drop(2).each do |row|
-        name, _type, data = row.split
-        output "#{config[:scheme]}.#{name}", data
+        unless row.nil?
+          name, _type, data = row.split
+          output "#{config[:scheme]}.#{name}", data
+        end
       end
       ok
     else
-      critical
+      critical "File: '/proc/spl/kstat/zfs/arcstats' does not exist "
     end
   end
 end
