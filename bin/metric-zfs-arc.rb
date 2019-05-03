@@ -40,6 +40,18 @@ class ZfsArcMetrics < Sensu::Plugin::Metric::CLI::Graphite
          default: "#{Socket.gethostname}.zfs"
 
   def run
+    # ZFS ARC statistics
+    #
+    # Here is sample output on a test system from the first 5 lines
+    #
+    #  /proc/spl/kstat/zfs/arcstats
+    #
+    # 13 1 0x01 96 26112 830229407922 1845600063633972
+    # name                            type data
+    # hits                            4    3013872557
+    # misses                          4    46742397
+    # demand_data_hits                4    2128530805
+
     if File.exist?('/proc/spl/kstat/zfs/arcstats')
       File.read('/proc/spl/kstat/zfs/arcstats').split("\n").drop(2).each do |row|
         unless row.nil?
