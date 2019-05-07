@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format located [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [2.1.0] - 2019-05-06
 ### Added
 - metric-zfs-arc.rb, aggregate ZFS ARC metrics (@phumpal)
 
@@ -26,6 +28,7 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 - properly parse the list of vdevs
 - fix checking all zpools (#2)
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.0.1...HEAD
-[2.0.0]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.0.0...2.0.1
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.0.1...2.1.0
+[2.0.1]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/bf20f6b2538849a9263dbaa8771d649b7173d8b1...2.0.0
