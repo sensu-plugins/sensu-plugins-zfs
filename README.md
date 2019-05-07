@@ -25,6 +25,14 @@ The following flags can be used to configure the checks.
 - `-C, --capacity-crit` Capacity threshold for when to crit. (default 90)
 - `-s, --scrubbing-interval` Warn when it is more than this number of days since last scrub. (default 7)
 
+## Metrics
+
+### metric-zfs-arc.rb
+
+Reads `/proc/spl/kstat/zfs/arcstats` for ARC statistics and puts them in a form usable by Graphite.
+
+For more information see ZoL [Linux Module Parameters](https://github.com/zfsonlinux/zfs/wiki/ZFS-on-Linux-Module-Parameters)
+
 ## Installation
 [Installation and setup](http://sensu-plugins.io/docs/installation_instructions.html)
 
