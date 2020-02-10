@@ -5,8 +5,6 @@ before_install: gem install bundler -v 1.15
 install:
 - bundle install
 rvm:
-- 2.1
-- 2.2
 - 2.3.0
 - 2.4.1
 notifications:
@@ -19,7 +17,16 @@ script:
 - gem build sensu-plugins-zfs.gemspec
 - gem install sensu-plugins-zfs-*.gem
 - bundle exec rake default
+before_deploy:
+- bash -c "[ ! -d bonsai/ ] && git clone https://github.com/sensu/sensu-go-bonsai-asset.git bonsai || echo 'bonsai/ exists, skipping git clone'"
 deploy:
+  - provider: script
+    script: chmod +x bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh && bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-zfs
+    skip_cleanup: true
+    on:
+      tags: true
+      all_branches: true
+      rvm: 2.4.1
   provider: rubygems
   api_key:
     secure: Dn+KoumNlRtK92pSP9BOWZOEarALoN76rO13pOtustp58vapbc/uw5uElSJHJFKyA9/UutCV7RAS+kcc6Kg2gGEzo8JuIayZdscU+rqpvWa8/NcL1xwDjuRd/K1tKmNiT5UfxEiMD8HczO4v9gcuDq3Hwgl84MPKRqlGRoOteujmiMjU3ytxQ2uXfr19Cmksk6bnjJAHQYMWPKa3YonQHRNk7vBm3Bf/MGKyUQ2sIGsvYlv5paOuc8Itl+HGKCVL7jp6YgelW2oT6NuB1EJSqoLtkQ9Z2yTH0qXOH+UkXQ73IuvHvDgPQ1J0sug1OHahcDSSLyIRv/O5P+j9lBfQuvgfdkSnAr9MHzcIiUKlXTyQjZUwxMHk+k4cdzXQZHvIUuiwLsOuQhI16fsC5CwNrH7fimHeCuyCml4a93zGwNjAifzAUGyGPhV39dFXgIA+GMEyTb5gGazVoS6rv5mte2nvyx29z2WnCKtvedf0EHGIw9b75khV3CULAzM+e76as/MattWZ0NXokMshgrG6i6p1rLrbeh10bW7ggXG0IBZaBvQ+yE4sKZPUmAyi5RGJ1xCu8smvk8fgFc83P5CJrLCZJCmBITLZ9hzyJz6vcXjKMTSqdirAnQ/nSnmL59XSq+IZsSPUU6CdDmdP5yw7gkMp0wiXC9WzgRt63df6hhg=
