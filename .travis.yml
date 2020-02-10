@@ -28,12 +28,12 @@ deploy:
       tags: true
       all_branches: true
       rvm: 2.4.1
-  provider: rubygems
-  api_key:
-    secure: Dn+KoumNlRtK92pSP9BOWZOEarALoN76rO13pOtustp58vapbc/uw5uElSJHJFKyA9/UutCV7RAS+kcc6Kg2gGEzo8JuIayZdscU+rqpvWa8/NcL1xwDjuRd/K1tKmNiT5UfxEiMD8HczO4v9gcuDq3Hwgl84MPKRqlGRoOteujmiMjU3ytxQ2uXfr19Cmksk6bnjJAHQYMWPKa3YonQHRNk7vBm3Bf/MGKyUQ2sIGsvYlv5paOuc8Itl+HGKCVL7jp6YgelW2oT6NuB1EJSqoLtkQ9Z2yTH0qXOH+UkXQ73IuvHvDgPQ1J0sug1OHahcDSSLyIRv/O5P+j9lBfQuvgfdkSnAr9MHzcIiUKlXTyQjZUwxMHk+k4cdzXQZHvIUuiwLsOuQhI16fsC5CwNrH7fimHeCuyCml4a93zGwNjAifzAUGyGPhV39dFXgIA+GMEyTb5gGazVoS6rv5mte2nvyx29z2WnCKtvedf0EHGIw9b75khV3CULAzM+e76as/MattWZ0NXokMshgrG6i6p1rLrbeh10bW7ggXG0IBZaBvQ+yE4sKZPUmAyi5RGJ1xCu8smvk8fgFc83P5CJrLCZJCmBITLZ9hzyJz6vcXjKMTSqdirAnQ/nSnmL59XSq+IZsSPUU6CdDmdP5yw7gkMp0wiXC9WzgRt63df6hhg=
-  gem: sensu-plugins-zfs
-  on:
-    tags: true
-    all_branches: true
-    rvm: 2.4.1
-    repo: sensu-plugins/sensu-plugins-zfs
+  - provider: rubygems
+    api_key:
+      secure: Dn+KoumNlRtK92pSP9BOWZOEarALoN76rO13pOtustp58vapbc/uw5uElSJHJFKyA9/UutCV7RAS+kcc6Kg2gGEzo8JuIayZdscU+rqpvWa8/NcL1xwDjuRd/K1tKmNiT5UfxEiMD8HczO4v9gcuDq3Hwgl84MPKRqlGRoOteujmiMjU3ytxQ2uXfr19Cmksk6bnjJAHQYMWPKa3YonQHRNk7vBm3Bf/MGKyUQ2sIGsvYlv5paOuc8Itl+HGKCVL7jp6YgelW2oT6NuB1EJSqoLtkQ9Z2yTH0qXOH+UkXQ73IuvHvDgPQ1J0sug1OHahcDSSLyIRv/O5P+j9lBfQuvgfdkSnAr9MHzcIiUKlXTyQjZUwxMHk+k4cdzXQZHvIUuiwLsOuQhI16fsC5CwNrH7fimHeCuyCml4a93zGwNjAifzAUGyGPhV39dFXgIA+GMEyTb5gGazVoS6rv5mte2nvyx29z2WnCKtvedf0EHGIw9b75khV3CULAzM+e76as/MattWZ0NXokMshgrG6i6p1rLrbeh10bW7ggXG0IBZaBvQ+yE4sKZPUmAyi5RGJ1xCu8smvk8fgFc83P5CJrLCZJCmBITLZ9hzyJz6vcXjKMTSqdirAnQ/nSnmL59XSq+IZsSPUU6CdDmdP5yw7gkMp0wiXC9WzgRt63df6hhg=
+    gem: sensu-plugins-zfs
+    on:
+      tags: true
+      all_branches: true
+      rvm: 2.4.1
+      repo: sensu-plugins/sensu-plugins-zfs
