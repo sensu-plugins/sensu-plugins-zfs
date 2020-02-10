@@ -6,7 +6,7 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 ## [Unreleased]
 
 ## [2.1.1] - 2020-02-10
-### Added
+### Changed
 - release adds support for sensu-go/bonsai
 
 ## [2.1.0] - 2019-05-06
