@@ -15,9 +15,9 @@ notifications:
     on_success: change
     on_failure: always
 script:
+- bundle exec rake default
 - gem build sensu-plugins-zfs.gemspec
 - gem install sensu-plugins-zfs-*.gem
-- bundle exec rake default
 before_deploy:
 - bash -c "[ ! -d bonsai/ ] && git clone https://github.com/sensu/sensu-go-bonsai-asset.git bonsai || echo 'bonsai/ exists, skipping git clone'"
 deploy:
