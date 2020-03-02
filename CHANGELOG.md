@@ -9,6 +9,7 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 - release adds support for sensu-go/bonsai
 - Update rubocop to '~> 0.80.1'
 - Remediate rubocop items
+- Updated rake requirement from 12.3 to ~> 13.0
 
 ## [2.1.0] - 2019-05-06
 ### Added
