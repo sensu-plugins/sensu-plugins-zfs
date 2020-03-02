@@ -1,10 +1,12 @@
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'date'
 require 'sensu-plugins-zfs/version'
 
-Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
+Gem::Specification.new do |spec|
   spec.authors = [
     'Benjamin Nørgaard',
     'Sensu-Plugins and contributors'
@@ -21,10 +23,10 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.license       = 'MIT'
 
   spec.metadata = {
-    'maintianer'         => 'sensu-plugin',
+    'maintianer' => 'sensu-plugin',
     'development_status' => 'active',
-    'production_status'  => 'unstable - testing recommended',
-    'release_draft'      => 'false',
+    'production_status' => 'unstable - testing recommended',
+    'release_draft' => 'false',
     'release_prerelease' => 'false'
   }
 
@@ -32,7 +34,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.platform               = Gem::Platform::RUBY
   spec.post_install_message   = 'You can use the embedded Ruby by setting EMBEDDED_RUBY=true in /etc/default/sensu'
   spec.require_paths          = ['lib']
-  spec.required_ruby_version  = '>= 2.1.0'
+  spec.required_ruby_version  = '>= 2.3.0'
   spec.summary                = 'Sensu plugin for zfs'
   spec.test_files             = spec.files.grep(%r{^(test|spec|features)/})
   spec.version                = SensuPluginsZFS::Version::VER_STRING

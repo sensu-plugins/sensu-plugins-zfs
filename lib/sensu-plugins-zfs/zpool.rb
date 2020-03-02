@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'time'
 
 module SensuPluginsZFS
@@ -26,6 +28,7 @@ module SensuPluginsZFS
     def scrubbed_at
       return Time.at(0) if never_scrubbed?
       return Time.now if scrub_in_progress?
+
       Time.parse `sudo zpool status #{@name} | grep '^  scan: scrub' | awk '{print $11" "$12" "$13" "$14" "$15}'`.strip # rubocop:disable
     end
 
