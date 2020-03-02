@@ -7,6 +7,8 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 ## [Unreleased] - 2020-02-10
 ### Changed
 - release adds support for sensu-go/bonsai
+- Update rubocop to '~> 0.80.1'
+- Remediate rubocop items
 
 ## [2.1.0] - 2019-05-06
 ### Added

@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'sensu-plugin/check/cli'
 require 'sensu-plugins-zfs'
@@ -54,30 +55,30 @@ class CheckZPool < Sensu::Plugin::Check::CLI
 
   private
 
-  def check_state(zp)
-    @criticals << "zpool #{zp.name} has state #{zp.state}" unless zp.ok?
+  def check_state(zpool)
+    @criticals << "zpool #{zpool.name} has state #{zpool.state}" unless zpool.ok?
   end
 
-  def check_vdevs(zp)
-    zp.vdevs.each do |vd|
+  def check_vdevs(zpool)
+    zpool.vdevs.each do |vd|
       unless vd.ok?
         @warnings << "vdev #{vd.name} of zpool #{vd.zpool.name} has errors"
       end
     end
   end
 
-  def check_capacity(zp)
-    if zp.capacity > config[:cap_crit].to_i
-      @criticals << "capacity for zpool #{zp.name} is above #{config[:cap_crit]}% (currently #{zp.capacity}%)"
-    elsif zp.capacity > config[:cap_warn].to_i
-      @warnings << "capacity for zpool #{zp.name} is above #{config[:cap_warn]}% (currently #{zp.capacity}%)"
+  def check_capacity(zpool)
+    if zpool.capacity > config[:cap_crit].to_i
+      @criticals << "capacity for zpool #{zpool.name} is above #{config[:cap_crit]}% (currently #{zpool.capacity}%)"
+    elsif zpool.capacity > config[:cap_warn].to_i
+      @warnings << "capacity for zpool #{zpool.name} is above #{config[:cap_warn]}% (currently #{zpool.capacity}%)"
     end
   end
 
-  def check_recently_scrubbed(zp)
-    last_scrub = zp.scrubbed_at
+  def check_recently_scrubbed(zpool)
+    last_scrub = zpool.scrubbed_at
     if last_scrub < Time.now - 60 * 60 * 24 * config[:scrubbing_interval].to_i # rubocop:disable Style/GuardClause
-      @warnings << "It is more than #{config[:scrubbing_interval]} days since zpool #{zp.name} was scrubbed. Last scrubbed #{last_scrub}"
+      @warnings << "It is more than #{config[:scrubbing_interval]} days since zpool #{zpool.name} was scrubbed. Last scrubbed #{last_scrub}"
     end
   end
 end
