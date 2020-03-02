@@ -5,6 +5,8 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 
 
 ## [Unreleased] - 2020-02-10
+
+## [2.2.0] - 2020-03-02
 ### Changed
 - release adds support for sensu-go/bonsai
 - Update rubocop to '~> 0.80.1'
