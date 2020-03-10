@@ -5,6 +5,8 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 
 
 ## [Unreleased] - 2020-02-10
+
+## [2.2.0] - 2020-03-02
 ### Changed
 - release adds support for sensu-go/bonsai
 - Update rubocop to '~> 0.80.1'
@@ -34,7 +36,8 @@ This CHANGELOG follows the format located [here](https://github.com/sensu-plugin
 - properly parse the list of vdevs
 - fix checking all zpools (#2)
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.2.0...HEAD
+[2.2.0]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/sensu-plugins/sensu-plugins-zfs/compare/bf20f6b2538849a9263dbaa8771d649b7173d8b1...2.0.0
