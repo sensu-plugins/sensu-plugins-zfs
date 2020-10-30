@@ -5,7 +5,7 @@ require 'time'
 module SensuPluginsZFS
   class ZFS
     def self.zpools
-      `sudo zpool list -H -o name`.lines.map do |l|
+      `zpool list -H -o name`.lines.map do |l|
         ZPool.new(l.strip)
       end
     end
@@ -16,8 +16,8 @@ module SensuPluginsZFS
 
     def initialize(name)
       @name = name
-      @state = `sudo zpool status #{name} | grep '^ state: ' | cut -d ' ' -f 3`.strip
-      @capacity = `sudo zpool get -H capacity #{@name} | awk '{print $3}' | cut -d '%' -f1`.strip.to_i
+      @state = `zpool status #{name} | grep '^ state: ' | cut -d ' ' -f 3`.strip
+      @capacity = `zpool get -H capacity #{@name} | awk '{print $3}' | cut -d '%' -f1`.strip.to_i
       @vdevs = create_vdevs name
     end
 
@@ -29,13 +29,13 @@ module SensuPluginsZFS
       return Time.at(0) if never_scrubbed?
       return Time.now if scrub_in_progress?
 
-      Time.parse `sudo zpool status #{@name} | grep '^  scan: scrub' | awk '{print $11" "$12" "$13" "$14" "$15}'`.strip # rubocop:disable
+      Time.parse `zpool status #{@name} | grep '^  scan: scrub' | awk '{print $11" "$12" "$13" "$14" "$15}'`.strip # rubocop:disable
     end
 
     private
 
     def create_vdevs(name)
-      cmd_out = `sudo zpool status #{name} | grep ONLINE | grep -v state | awk '{print $1 " " $2 " " $3 " " $4 " " $5}'`
+      cmd_out = `zpool status #{name} | grep ONLINE | grep -v state | awk '{print $1 " " $2 " " $3 " " $4 " " $5}'`
       cmd_out.lines.map do |l|
         arr = l.strip.split(' ')
         VDev.new(self, arr[0], arr[1], arr[2].to_i, arr[3].to_i, arr[4].to_i)
@@ -43,11 +43,11 @@ module SensuPluginsZFS
     end
 
     def never_scrubbed?
-      `sudo zpool status #{@name} | egrep -c "none requested"`.strip.to_i == 1
+      `zpool status #{@name} | egrep -c "none requested"`.strip.to_i == 1
     end
 
     def scrub_in_progress?
-      `sudo zpool status #{@name} | egrep -c "scrub in progress|resilver"`.strip.to_i == 1
+      `zpool status #{@name} | egrep -c "scrub in progress|resilver"`.strip.to_i == 1
     end
   end
 
